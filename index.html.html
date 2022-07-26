@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> FISHFOLIO </title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--- wouldn't be surprised if for some reason this would get you banned so on the safe side use VPN/some random account -->
+<!--- Will pull player name changes based off a players ID, can be used to check name changes if you can't find the player -->
+<div>
+<button><a href='https://pastebin.com/qQm9zk3n' target='_blank'> GET ACCESS TOKEN </a> </button>
+</div>
+<div>
+<label for ='at' name='at'> X-ACCESS-TOKEN </label>
+<input id='at' name='at'></input>
+
+<label for ='pd' name='pd'> PLAYER ID </label>
+<input id='pd' name='pd'></input>
+</div>
+<div><button id='resultsB'>GO</button>
+<div id='results'></div>
+
+</body>
+<script>
+
+    document.getElementById('resultsB').onclick = async function () {
+		const at = document.getElementById('at').value
+		const pd = document.getElementById('pd').value;
+		let fetchx = await 
+		fetch("https://api-lok-live.leagueofkingdoms.com/api/kingdom/profile/other", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "sec-gpc": "1",
+    "x-access-token": `${at}`
+  },
+  "referrer": "https://play.leagueofkingdoms.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": `json=%7B%22kingdomId%22%3A%22${pd}%22%7D`,
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "omit"
+  
+		
+});
+	const fetchy = await fetchx.json();
+	const results = fetchy.profile
+		console.log(results)
+		
+		let name = results.name;
+		let power = results.power;
+		let id = results._id;
+		let c = results.worldId;
+		
+		(response => response.json())
+		let currentDiv = document.getElementById("results");
+        let content = `
+                   <div>
+					<p>Current Name: ${name} | Player ID: ${id}</p>
+					<div>
+					<p>Power: ${power} | Current Continent ${c}</p>
+					</div>
+                   </div>
+                    `
+                    currentDiv.innerHTML += content;
+		
+  };
+
+
+</script>
+</html>
