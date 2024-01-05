@@ -1,61 +1,75 @@
-/* Set the font family and retro background for the body */
+/* Basic reset for body to remove any default margins and set the font */
 body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #FFC0CB; /* Soft pink background */
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace; /* Monospace font to mimic the terminal */
+    background-color: #000; /* Black background for the whole page */
+    color: #33ff33; /* Bright green text, classic terminal style */
   }
   
   /* Style the tab container */
   .tab {
     overflow: hidden;
-    background-color: #00CED1; /* Dark cyan background */
-    border-radius: 5px; /* Rounded corners for the tab container */
+    background-color: #000; /* Tabs background - black */
   }
   
   /* Style the buttons inside the tab */
   .tab button {
-    background-color: inherit;
-    border: none;
+    background-color: #000; /* Black background for buttons */
+    border: 1px solid #333; /* Slight border for the buttons to stand out */
     outline: none;
     cursor: pointer;
     padding: 10px 20px;
     transition: 0.3s;
-    font-size: 0.8rem; /* Retro font size */
-    color: #FFFFFF; /* White text */
+    font-size: 1rem; /* Adjust size as needed */
+    color: #33ff33; /* Terminal green text */
+    font-family: 'Courier New', monospace;
   }
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: #BADA55; /* Fun yellow-green on hover */
+    background-color: #005500; /* Darker green for hover state */
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
-    background-color: #FF69B4; /* Bright pink for the active tab */
-    color: #000000; /* Black text for contrast */
+    background-color: #007700; /* Even darker green for the active tab */
   }
   
   /* Style the tab content */
   .tabcontent {
     display: none;
     padding: 20px;
-    border: 1px solid #DDA0DD; /* Pale violet border */
-    border-top: none;
-    background: #FFFACD; /* Lemon chiffon background */
+    background: #000; /* Black background for content */
+    border: none;
   }
   
-  /* Style the content divs */
+  /* Styling for the content inside the tabs */
   #aa, #bb, #cc {
-    background: #FFF0F5; /* Lavender blush background */
-    color: #000; /* Black text for readability */
-    padding: 10px;
-    margin: 10px 0;
-    border-left: 5px solid #FF1493; /* Deep pink border on the left */
+    background: #000; /* Keep the background black for the content divs */
+    border-left: 3px solid #33ff33; /* Green left border for content divs */
   }
   
   /* Basic style for content texts */
   t {
     display: block; /* Display block for layout */
     margin: 5px 0;
-    color: #000; /* Black text */
+    color: #33ff33; /* Green text */
+    font-family: 'Courier New', monospace;
+  }
+  
+  /* Override any other styles that might interfere */
+  * {
+    box-sizing: border-box;
+  }
+  
+/* Additional styling to mimic the command line */
+.tabcontent::before {
+    content: 'C:\\User\\user\A Folder PATH listing for volume Windows\A Volume serial number is 6969-420X\A C:.';
+    white-space: pre; /* This makes sure the new lines and spaces are preserved */
+    color: #33ff33; /* Terminal green text */
+    font-family: 'Courier New', monospace;
+    display: block; /* Display as block-level element */
+    margin-bottom: 20px; /* Add some space below the pseudo-element */
   }
   
