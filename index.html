@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+        <body>
+
+            <center><div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'a')" id="defaultOpen">Battle</button>
+                <button class="tablinks" onclick="openTab(event, 'b')">Production</button>
+                <button class="tablinks" onclick="openTab(event, 'c')">Advanced</button>
+              </div></center>
+
+            <div id="a" class="tabcontent" style="display: block;">
+            <div id="aa"></div>
+            </div>
+            <div id="b" class="tabcontent" style="display: none;">
+            <div id="bb"></div>
+            </div>
+            <div id="c" class="tabcontent" style="display: none;">
+            <div id="cc"></div>
+            </div>
+
+        </body>
+        <script src='js.js' type='text/javascript'></script>
+        <script type="text/javascript">
+            document.getElementById("defaultOpen").click();
+        
+            function openTab(evt, corny) {
+          // Declare all variables
+          var i, tabcontent, tablinks;
+        
+          // Get all elements with class="tabcontent" and hide them
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+        
+          // Get all elements with class="tablinks" and remove the class "active"
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+        
+          // Show the current tab, and add an "active" class to the link that opened the tab
+          document.getElementById(corny).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+          </script>
+</html>
