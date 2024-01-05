@@ -7,6 +7,17 @@ function convertSeconds(seconds) {
     seconds  -= mnts*60;
     return `${days} days, ${hrs} hours, ${mnts} minutes, and ${seconds} seconds`;
 }
+// Blinking cursor
+function blinkCursor() {
+    var cursor = document.querySelector('.cursor');
+    setInterval(() => {
+        cursor.style.opacity = (cursor.style.opacity === '0' ? '1' : '0');
+    }, 500); // Cursor blinks every 500ms
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    blinkCursor(); // Start the blinking cursor effect when the DOM is fully loaded
+});
 async function a() {
     let battleData = await fetch('https://raw.githubusercontent.com/dyla-n/dyla-n.github.io/main/battle.json')
     let battleStuff = await battleData.json()
