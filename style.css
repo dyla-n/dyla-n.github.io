@@ -47,7 +47,6 @@ body {
   /* Styling for the content inside the tabs */
   #aa, #bb, #cc {
     background: #000; /* Keep the background black for the content divs */
-    border-left: 3px solid #33ff33; /* Green left border for content divs */
   }
   
   /* Basic style for content texts */
@@ -62,14 +61,20 @@ body {
   * {
     box-sizing: border-box;
   }
-  
-/* Additional styling to mimic the command line */
-.tabcontent::before {
-    content: 'C:\\User\\user\A Folder PATH listing for volume Windows\A Volume serial number is 6969-420X\A C:.';
-    white-space: pre; /* This makes sure the new lines and spaces are preserved */
-    color: #33ff33; /* Terminal green text */
-    font-family: 'Courier New', monospace;
-    display: block; /* Display as block-level element */
-    margin-bottom: 20px; /* Add some space below the pseudo-element */
+
+  /* Style the blinking cursor */
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background-color: #33ff33;
+    margin-left: 5px;
+    animation: blink 1s infinite steps(1);
   }
   
+  /* Keyframes for the blinking effect */
+  @keyframes blink {
+    50% {
+      background-color: transparent;
+    }
+  }
